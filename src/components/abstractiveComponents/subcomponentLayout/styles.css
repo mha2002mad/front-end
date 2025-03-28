@@ -1,0 +1,122 @@
+#darkComponentLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    height: 80vh;
+    width: 75%;
+    background-color: var(--dark-card-back);
+    box-shadow: 1vh 2vh 3vh var(--dark-shadow-color);
+    animation-name: appear;
+    animation-duration: .1s;
+    animation-iteration-count: 1;
+}
+
+#whiteComponentLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    height: 80vh;
+    width: 75%;
+    background-color: var(--white-card-back);
+    box-shadow: 1vh 2vh 3vh var(--white-shadow-color);
+    animation-name: appear;
+    animation-duration: .1s;
+    animation-iteration-count: 1;
+}
+
+@keyframes appear {
+    0% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#darkLeaveRequestViewer {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 2vh;
+    width: 70%;
+    height: 50vh;
+    background-color: transparent;
+    overflow-y: scroll;
+}
+
+#whiteLeaveRequestViewer {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 2vh;
+    width: 70%;
+    height: 50vh;
+    background-color: transparent;
+    overflow-y: scroll;
+}
+
+img {
+    align-self: self-start;
+    margin: 6vh;
+    width: 3.8vh;
+    height: 2.8vh;
+    cursor: pointer;
+}
+
+#darkRecordView {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 2vh;
+    width: 70%;
+    height: 50vh;
+    background-color: transparent;
+    overflow-y: scroll;
+}
+
+#darkRecordView::-webkit-scrollbar {
+    width: .8vh;
+    background-color: var(--dark-shadow-color);
+}
+
+#darkRecordView::-webkit-scrollbar-thumb {
+    background-color: var(--button-color-dark);
+}
+
+#whiteRecordView {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 2vh;
+    width: 70%;
+    height: 50vh;
+    background-color: transparent;
+    overflow-y: scroll;
+}
+
+#whiteRecordView::-webkit-scrollbar {
+    width: .8vh;
+    background-color: var(--white-shadow-color);
+}
+
+#whiteRecordView::-webkit-scrollbar-thumb {
+    background-color: var(--button-color-white);
+}
+
+#img {
+    align-self: self-start;
+    margin: 6vh;
+    width: 3.8vh;
+    height: 2.8vh;
+    cursor: pointer;
+}

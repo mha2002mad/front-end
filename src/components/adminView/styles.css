@@ -1,0 +1,7 @@
+#dashboardWhite {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: first baseline;
+    background-color: var(--white-back);
+  }

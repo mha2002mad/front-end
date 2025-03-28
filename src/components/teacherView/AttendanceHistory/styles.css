@@ -1,0 +1,213 @@
+.colDevider {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80%;
+    width: 70vw;
+    background-color: transparent;
+    transform: translateY(-2vw);
+}
+.whiteCol {
+    width: 15vw;
+}
+
+.darkCol {
+    width: 15vw;
+}
+
+.optionsFormWhite {
+    width: 15vw;
+    border: 1px dashed gray;
+    border-radius: .6vw;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 2vh;
+    align-items: center;
+}
+
+.optionsFormDark {
+    width: 15vw;
+    height: 100%;
+    border: 1px dashed gray;
+    border-radius: .6vw;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 2vh;
+    align-items: center;
+}
+
+.darkData {
+    font-family: 'Roboto';
+    font-size: 2vh;
+    color: var(--font-dark);
+    text-align: center;
+}
+
+.whiteData {
+    font-family: 'Roboto';
+    font-size: 2vh;
+    color: var(--font-white);
+    text-align: center;
+}
+
+.darkDate {
+    padding: 8px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: var(--dark-card-back);
+  }
+.whiteDate {
+    padding: 8px;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    background-color: var(--white-card-back);
+  }
+
+#selectDark {
+    align-self: center;
+    padding: 1vh 2vh;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-size: 2vh;
+    border: 0px;
+    background-color: var(--dark-back);
+    color: var(--font-dark);
+}
+
+#selectWhite {
+    align-self: center;
+    padding: 1vh 2vh;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-size: 2vh;
+    border: 0px;
+}
+
+.optionDark {
+    color: var(--font-dark);
+    font-size: 2vh;
+    font-family: 'Roboto';
+    background-color: var(--dark-back);
+}
+
+.optionWhite {
+    color: var(--font-white);
+    font-size: 2vh;
+    font-family: 'Roboto';
+    background-color: var(--white-card-back);
+  }
+
+  
+  #frame {
+      width: 52vw;
+      border: 1px dashed gray;
+      border-radius: .6vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .whiteDataView {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        gap: 1vh;
+        overflow-y: scroll;
+    }
+    
+    .darkDataView {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        gap: 1vh;
+        overflow-y: scroll;
+    }
+
+    .captions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    font-weight: bolder;
+}
+
+.whiteDataRows {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: var(--white-back);
+    gap: 2vw;
+}
+.darkDataRows {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: var(--dark-back);
+    gap: 2vw;
+}
+
+.studentNameDark {
+    font-family: 'Roboto';
+    font-size: 2vh;
+    color: var(--font-dark);
+    text-align: center;
+    width: 30%;
+    word-wrap: break-word;
+}
+
+.studentNameWhite {
+    font-family: 'Roboto';
+    align-items: center;
+    font-size: 2vh;
+    color: var(--font-white);
+    text-align: center;
+    width: 30%;
+    word-wrap: break-word;
+}
+
+.theReasonDark {
+    font-family: 'Roboto';
+    font-size: 2vh;
+    color: var(--font-dark);
+    text-align: center;
+    width: 50%;
+    text-align: center;
+    word-wrap: break-word;
+    vertical-align: middle;
+}
+
+.theReasonWhite {
+    font-family: 'Roboto';
+    font-size: 2vh;
+    color: var(--font-white);
+    text-align: center;
+    width: 50%;
+    word-wrap: break-word;
+}
+.darkDataView::-webkit-scrollbar {
+    width: .8vh;
+    background-color: var(--dark-shadow-color);
+}
+
+.darkDataView::-webkit-scrollbar-thumb {
+    background-color: var(--button-color-dark);
+}
+.whiteDataView::-webkit-scrollbar {
+    width: .8vh;
+    background-color: var(--white-shadow-color);
+}
+
+.whiteDataView::-webkit-scrollbar-thumb {
+    background-color: var(--button-color-white);
+}

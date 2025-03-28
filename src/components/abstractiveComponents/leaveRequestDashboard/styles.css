@@ -1,0 +1,158 @@
+#darkStuLeaveReqView {
+    width: 70%;
+    height: 60%;
+    background-color: transparent;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+    margin: 1vh;
+}
+
+#darkStuLeaveReqView::-webkit-scrollbar-thumb {
+    background-color: var(--button-color-dark);
+    width: .8vh;
+}
+
+#darkStuLeaveReqView::-webkit-scrollbar {
+    width: .8vh;
+    background-color: var(--dark-shadow-color);
+}
+
+#whiteStuLeaveReqView {
+    width: 70%;
+    height: 60%;
+    background-color: transparent;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+    margin: 1vh;
+    
+}
+
+#whiteStuLeaveReqView::-webkit-scrollbar-thumb {
+    background-color: var(--button-color-white);
+    width: .8vh;
+}
+
+#whiteStuLeaveReqView::-webkit-scrollbar {
+    width: .8vh;
+    background-color: var(--white-shadow-color);
+}
+
+.whiteStuLeaveReqRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--white-back);
+}
+
+.darkStuLeaveReqRow {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    justify-items: center;
+    align-items: center;
+    background-color: var(--dark-back);
+}
+
+.darkStuLaveReqElements {
+    font-size: 2vh;
+    margin: 1vh 1vh 1vh .1vh;
+    text-align: left;
+    color: var(--font-dark);
+}
+
+.whiteStuLaveReqElements {
+    font-size: 2vh;
+    margin: 1vh 1vh 1vh .1vh;
+    text-align: left;
+    color: var(--font-white);
+}
+
+#darkLeaveReqButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 6vh;
+    gap: 1vh; 
+    justify-content: center;
+    align-items: center;
+    font-size: 2vh;
+    margin: 1vh 1vh 1vh .1vh;
+}
+
+#whiteLeaveReqButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    gap: 1vh;
+    height: 6vh;
+    align-content: center;
+    align-items: center;
+    font-size: 2vh;
+    margin: 1vh 1vh 1vh .1vh;
+}
+
+input[type="submit"]{
+    font-family: 'roboto';
+}
+
+.whiteRejectButton {
+    cursor: pointer;
+    height: 5vh;
+    width: 7vh;
+    border: 0px;
+    outline: 0px;
+    background-color: var(--button-color-dark);
+    color: var(--font-dark);
+    border-radius: .4vh;
+    text-align: center;
+    font-size: 2vh;
+}
+
+.whiteAcceptButton {
+    cursor: pointer;
+    height: 5vh;
+    width: 7vh;
+    border: 0px;
+    outline: 0px;
+    background-color: var(--button-color-white);
+    color: var(--font-dark);
+    border-radius: .4vh;
+    text-align: center;
+    font-size: 2vh;
+}
+
+.darkRejectButton {
+    cursor: pointer;
+    height: 5vh;
+    width: 7vh;
+    border: 0px;
+    outline: 0px;
+    background-color: var(--button-color-dark);
+    color: var(--font-dark);
+    border-radius: .4vh;
+    text-align: center;
+    font-size: 2vh;
+}
+
+.darkAcceptButton {
+    cursor: pointer;
+    height: 5vh;
+    width: 7vh;
+    border: 0px;
+    outline: 0px;
+    background-color: var(--button-color-white);
+    color: var(--font-dark);
+    border-radius: .4vh;
+    text-align: center;
+    font-size: 2vh;
+}

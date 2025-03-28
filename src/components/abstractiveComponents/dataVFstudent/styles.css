@@ -1,0 +1,94 @@
+#darkRecordView {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 2vh;
+    width: 70%;
+    height: 40vh;
+    background-color: transparent;
+    overflow-y: scroll;
+}
+
+#darkRecordView::-webkit-scrollbar {
+    width: .8vh;
+    background-color: var(--dark-shadow-color);
+}
+
+#darkRecordView::-webkit-scrollbar-thumb {
+    background-color: var(--button-color-dark);
+}
+
+#whiteRecordView {
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 2vh;
+    width: 70%;
+    height: 40vh;
+    background-color: transparent;
+    overflow-y: scroll;
+}
+
+#whiteRecordView::-webkit-scrollbar {
+    width: .8vh;
+    background-color: var(--white-shadow-color);
+}
+
+#whiteRecordView::-webkit-scrollbar-thumb {
+    background-color: var(--button-color-white);
+}
+
+
+.darkRecord {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 4vh;
+    background-color: var(--dark-back);
+    text-align: center;
+}
+
+.whiteRecord {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 4vh;
+    background-color: var(--white-back);
+    text-align: center;
+}
+
+.darkData {
+    font-family: 'Roboto';
+    font-size: 3vh;
+    color: var(--font-dark);
+    text-align: center;
+    width: 40vh;
+}
+
+.whiteData {
+    font-family: 'Roboto';
+    font-size: 3vh;
+    color: var(--font-white);
+    text-align: center;
+    width: 40vh;
+}
+
+#whiteNoDataView {
+    margin: 18vh;
+    font-family: 'Roboto';
+    font-size: 1.3em;
+    color: var(--font-white);
+}
+
+#darkNoDataView {
+    margin: 18vh;
+    font-family: 'Roboto';
+    font-size: 1.3em;
+    color: var(--font-dark);
+}

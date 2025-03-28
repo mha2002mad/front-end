@@ -1,0 +1,153 @@
+@font-face {
+  font-family: 'roboto';
+  src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap') format('Roboto-Regular');
+}
+
+  #captionWhite {
+    font-family: 'Roboto';
+    letter-spacing: 5px;
+    font-size: 4vh;
+    color: var(--font-white);
+  }
+  
+  #captionDark {
+    font-family: 'Roboto';
+    letter-spacing: 5px;
+    font-size: 4vh;
+    color: var(--font-dark);
+  }
+  
+  #formWhite {
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.9vh;
+    height: 80%;
+    width: 90vw;
+    justify-content: space-around;
+    gap: 3vh;
+    align-items: center;
+  }
+  
+  #formDark {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    width: 90vw;
+    justify-content: space-around;
+    gap: 3vh;
+    align-items: center;
+  }
+  
+  .inputWhite {
+    width: 50%;
+    height: 55vh;
+    border-radius: 0.9vh 1vh 0 0;
+    border: 0px;
+    font-size: 3vh;
+    padding-left: 3vh;
+  }
+  
+  .inputWhite:focus {
+    border: 0px;
+    outline: 0px;
+    background-color: transparent;
+    border-bottom: 0.4vh solid var(--button-color-white);
+    box-shadow: 0.5vh 1vh 1vh var(--white-shadow-color);
+  }
+  
+  .inputWhite::placeholder {
+      font-family: 'Roboto';
+      font-size: 3vh;
+      color: var(--placeholder-white);
+      width: 100%;
+      border: 0px;
+  }
+  
+  .inputWhite::-ms-input-placeholder {
+    font-family: 'Roboto';
+    font-size: 3vh;
+    color: var(--placeholder-white);
+    width: 100%;
+    border: 0px;
+   }
+
+   .inputWhite::-webkit-input-placeholder {
+    font-family: 'Roboto';
+    font-size: 3vh;
+    color: var(--placeholder-white);
+    width: 100%;
+    border: 0px;
+   }
+
+   .inputWhite::-moz-input-placeholder {
+    font-family: 'Roboto';
+    font-size: 3vh;
+    color: var(--placeholder-white);
+    width: 100%;
+    border: 0px;
+   }
+
+  .inputDark {
+    width: 50%;
+    height: 55vh;
+    border-radius: 0.9vh 1vh 0 0;
+    border: 0px;
+    font-size: 3vh;
+    padding-left: 3vh;
+    background-color: var(--dark-back);
+    color: var(--font-dark);
+  }
+  
+  .inputDark:focus {
+    border: 0px;
+    background-color: transparent;
+    border-bottom: 0.4vh solid var(--button-color-dark);
+    outline: 0px;
+    box-shadow: 0.5vh 1vh 1vh var(--dark-shadow-color);
+  }
+  
+  .inputDark::placeholder {
+    font-family: 'Roboto';
+    font-size: 3vh;
+    color: var(--placeholder-dark);
+    width: 100%;
+  }
+
+  .inputDark::-webkit-input-placeholder {
+    font-family: 'Roboto';
+    font-size: 3vh;
+    color: var(--placeholder-dark);
+    width: 100%;
+  }
+  
+  #submitButtonWhite {
+    cursor: pointer;
+    font-size: 2.4vh;
+    border: 0px;
+    outline: 0px;
+    background-color: var(--button-color-white);
+    color: rgb(0, 22, 29);
+    padding: 2vh 5vh;
+    border-radius: .6vh;
+    letter-spacing: .6vh;
+  }
+  
+  #submitButtonWhite:hover {
+    box-shadow: 0.5vh 1vh 1vh var(--white-shadow-color);
+  }
+  
+  #submitButtonDark {
+    cursor: pointer;
+    font-size: 2.4vh;
+    border: 0px;
+    outline: 0px;
+    background-color: var(--button-color-dark);
+    color: var(--font-dark);
+    padding: 2vh 5vh;
+    border-radius: .6vh;
+    letter-spacing: .6vh;
+  }
+  
+  #submitButtonDark:hover {
+    box-shadow: 0.5vh 1vh 1vh var(--dark-shadow-color);
+  }

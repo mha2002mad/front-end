@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'roboto';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap') format('Roboto-Regular');
+  }
+  
+
+
+  p {
+    font-family: 'roboto';
+  }
+
+  #pageWhite {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white-back);
+  }
+  
+  #pageDark {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--dark-back);
+  }
+  
+  #icon {
+    color: black;
+    border-radius: 50%;
+    height: 5vh;
+    width: 5vh;
+    cursor: pointer;
+    position: absolute;
+    top: 3vh;
+    right: 3vh;
+    box-shadow: 10vh 10vh 10vh green;
+    z-index: 2;
+  }
+
+  #waitingSpinnerWhite {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 11;
+    background-color: var(--button-color-white);
+    height: .59vh;
+    width: 30%;
+    box-shadow: -2vh 0vh 4vh var(--button-color-white),
+    0vh 2vh 4vh var(--button-color-white),
+    3vh 0vh 4vh var(--button-color-white);
+  }
+
+  #waitingSpinnerDark {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 11;
+    background-color: var(--button-color-dark);
+    height: .59vh;
+    width: 8%;
+    box-shadow: -2vh 0vh 4vh var(--button-color-dark),
+     0vh 2vh 4vh var(--button-color-dark),
+     3vh 0vh 4vh var(--button-color-dark);
+  }

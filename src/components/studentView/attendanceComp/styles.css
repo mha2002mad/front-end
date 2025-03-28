@@ -1,0 +1,57 @@
+#darkComponentLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    height: 80vh;
+    width: 75%;
+    background-color: var(--dark-card-back);
+    box-shadow: 1vh 2vh 3vh var(--dark-shadow-color);
+    animation-name: appear;
+    animation-duration: .1s;
+    animation-iteration-count: 1;
+}
+
+
+#whiteComponentLayout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: baseline;
+    height: 80vh;
+    width: 75%;
+    background-color: var(--white-card-back);
+    box-shadow: 1vh 2vh 3vh var(--white-shadow-color);
+    animation-name: appear;
+    animation-duration: .1s;
+    animation-iteration-count: 1;
+}
+
+@keyframes appear {
+    0% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+img {
+    align-self: self-start;
+    margin: 6vh;
+    width: 3.8vh;
+    height: 2.8vh;
+    cursor: pointer;
+}
+
+#info {
+    background-color: var(--button-color-dark);
+    font-size: 3vh;
+    width: 50%;
+    text-align: center;
+    color: rgb(219, 219, 219);
+    font-family: 'roboto';
+    border-radius: 0.16vw;
+}
+
+
