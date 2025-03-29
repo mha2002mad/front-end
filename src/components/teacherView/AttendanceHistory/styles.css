@@ -57,18 +57,16 @@
 
 .darkDate {
     padding: 8px;
-    border: 2px solid #007bff;
     border-radius: 5px;
     font-size: 16px;
-    color: #333;
+    color: var(--font-dark);
     background-color: var(--dark-card-back);
-  }
+}
 .whiteDate {
     padding: 8px;
-    border: 2px solid #007bff;
     border-radius: 5px;
     font-size: 16px;
-    color: #333;
+    color: var(--font-white);
     background-color: var(--white-card-back);
   }
 
@@ -94,42 +92,54 @@
 
 .optionDark {
     color: var(--font-dark);
-    font-size: 2vh;
+    font-size: 1.8vh;
     font-family: 'Roboto';
     background-color: var(--dark-back);
 }
 
 .optionWhite {
     color: var(--font-white);
-    font-size: 2vh;
+    font-size: 1.8vh;
     font-family: 'Roboto';
     background-color: var(--white-card-back);
   }
 
-  
-  #frame {
-      width: 52vw;
-      border: 1px dashed gray;
-      border-radius: .6vw;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    
+  .outerFrame {
+    display: flex;
+    flex-direction: column;
+    width: 54vw;
+    height: 66vh;
+  }
+
+
+    #frame {
+        width: 54vw;
+        border: 1px dashed gray;
+        border-radius: .6vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 66vh;
+        align-self: flex-end;
+        align-content: center;
+        }
+
     .whiteDataView {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 100%;
         gap: 1vh;
         overflow-y: scroll;
+        height: 66vh;
+        width: 54vw;
     }
-    
+
     .darkDataView {
+        height: 66vh;
+        width: 54vw;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 100%;
         gap: 1vh;
         overflow-y: scroll;
     }
@@ -138,40 +148,116 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 100%;
+    width: 54vw;
     font-weight: bolder;
+    height: 3vh;
+}
+
+.darkCaption:nth-child(1) {
+    display: inline;
+    height: 3vh;
+    font-family: 'Roboto';
+    font-size: 2vh;
+    color: var(--font-dark);
+    text-align: center;
+    align-content: center;
+    width: 8%;
+}
+
+.whiteCaption:nth-child(1) {
+    display: inline;
+    height: 3vh;
+    font-family: 'Roboto';
+    font-size: 2vh;
+    color: var(--font-white);
+    text-align: center;
+    align-content: center;
+    width: 8%;
+}
+
+.darkCaption:nth-child(2) {
+    display: inline;
+    height: 3vh;
+    font-family: 'Roboto';
+    font-size: 2vh;
+    color: var(--font-dark);
+    text-align: center;
+    align-content: center;
+    width: 14%;
+}
+
+.whiteCaption:nth-child(2) {
+    display: inline;
+    height: 3vh;
+    font-family: 'Roboto';
+    font-size: 2vh;
+    color: var(--font-white);
+    text-align: center;
+    align-content: center;
+    width: 14%;
+}
+
+.darkCaption:nth-child(3) {
+    display: inline;
+    height: 3vh;
+    font-family: 'Roboto';
+    font-size: 2vh;
+    color: var(--font-dark);
+    text-align: center;
+    align-content: center;
+    width: 20%;
+}
+
+.whiteCaption:nth-child(3) {
+    display: inline;
+    height: 3vh;
+    font-family: 'Roboto';
+    font-size: 2vh;
+    color: var(--font-white);
+    text-align: center;
+    align-content: center;
+    width: 20%;
 }
 
 .whiteDataRows {
+    height: 20vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: var(--white-back);
     gap: 2vw;
+    width: 53vw;
 }
+
 .darkDataRows {
+    height: 20vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: var(--dark-back);
     gap: 2vw;
+    width: 53vw;
 }
 
 .studentNameDark {
+    height: 15vh;
     font-family: 'Roboto';
     font-size: 2vh;
     color: var(--font-dark);
     text-align: center;
-    width: 30%;
     word-wrap: break-word;
+    align-content: center;
+    width: 30%;
+    align-items: center;
 }
 
 .studentNameWhite {
+    height: 15vh;
     font-family: 'Roboto';
-    align-items: center;
     font-size: 2vh;
     color: var(--font-white);
     text-align: center;
+    align-content: center;
     width: 30%;
     word-wrap: break-word;
 }
@@ -181,20 +267,40 @@
     font-size: 2vh;
     color: var(--font-dark);
     text-align: center;
-    width: 50%;
+    width: 20vw;
     text-align: center;
     word-wrap: break-word;
-    vertical-align: middle;
+    align-content: center;
 }
 
 .theReasonWhite {
+    align-content: center;
     font-family: 'Roboto';
     font-size: 2vh;
     color: var(--font-white);
     text-align: center;
-    width: 50%;
+    width: 20vw;
     word-wrap: break-word;
 }
+.darkhint {
+    font-family: 'Roboto';
+    color: var(--font-dark);
+    text-align: center;
+    align-content: center;
+    font-size: 3vh;
+    height: 100%;
+    width: 54vw;
+}
+.whitehint {
+    height: 100%;
+    width: 54vw;
+    font-family: 'Roboto';
+    color: var(--font-white);
+    text-align: center;
+    align-content: center;
+    font-size: 3vh;
+}
+
 .darkDataView::-webkit-scrollbar {
     width: .8vh;
     background-color: var(--dark-shadow-color);

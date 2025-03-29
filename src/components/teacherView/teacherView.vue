@@ -1,5 +1,5 @@
 <template>
-    <DCR v-if="render" :API="API" :currentComponent="currentComponent" :changeCurrentComponent="changeCurrentComponent" :theme="theme"/>
+    <DCR v-if="render" :catchNetworkError="catchNetworkError" :progressBarManagement="progressBarManagement" :responseManagement="responseManagement" :API="API" :currentComponent="currentComponent" :changeCurrentComponent="changeCurrentComponent" :theme="theme"/>
 </template>
 
 <script setup>
@@ -12,7 +12,9 @@ const props = defineProps({
     cookie: Object,
     LCSRF: Function,
     API: Function,
-
+    progressBarManagement: Function,
+    responseManagement: Function,
+    catchNetworkError: Function
 });
 
 const render = ref(0);
