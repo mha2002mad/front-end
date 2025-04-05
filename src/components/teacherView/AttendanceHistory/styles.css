@@ -119,28 +119,22 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        height: 66vh;
+        height: 61vh;
         align-self: flex-end;
         align-content: center;
         }
 
     .whiteDataView {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1vh;
+        display: block;
         overflow-y: scroll;
-        height: 66vh;
+        height: 61vh;
         width: 54vw;
     }
 
     .darkDataView {
-        height: 66vh;
+        height: 61vh;
         width: 54vw;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1vh;
+        display: block;
         overflow-y: scroll;
     }
 
@@ -221,6 +215,8 @@
 
 .whiteDataRows {
     height: 20vh;
+    margin-top: .5vh;
+    margin-bottom: .5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -231,6 +227,8 @@
 
 .darkDataRows {
     height: 20vh;
+    margin-top: .5vh;
+    margin-bottom: .5vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

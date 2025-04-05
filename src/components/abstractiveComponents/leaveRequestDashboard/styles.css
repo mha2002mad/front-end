@@ -1,5 +1,5 @@
 #darkStuLeaveReqView {
-    width: 70%;
+    width: 80%;
     height: 60%;
     background-color: transparent;
     overflow-y: scroll;
@@ -21,7 +21,7 @@
 }
 
 #whiteStuLeaveReqView {
-    width: 70%;
+    width: 80%;
     height: 60%;
     background-color: transparent;
     overflow-y: scroll;
@@ -75,6 +75,49 @@
     margin: 1vh 1vh 1vh .1vh;
     text-align: left;
     color: var(--font-white);
+}
+
+.whiteStuLaveReqres {
+    width: 30vw;
+    text-align: center;
+}
+
+.darkStuLaveReqres {
+    width: 30vw;
+    color: var(--font-dark);
+    text-align: center;
+}
+
+.approvedLabel{
+    padding: .6vh;
+    border-radius: 1vw;
+    text-align: center;
+    align-content: center;
+    background: var(--button-color-white);
+    color: var(--font-dark);
+}
+
+.rejectedLabel{
+    padding: .6vh;
+    border-radius: 1vw;
+    text-align: center;
+    align-content: center;
+    background: rgb(139, 4, 4);
+    color: var(--font-dark);
+}
+
+.darkNoReq {
+    height: 40vh;
+    width: 60vw;
+    text-align: center;
+    align-content: center;
+    color: var(--font-dark);
+}
+.whiteNoReq {
+    height: 40vh;
+    width: 60vw;
+    text-align: center;
+    align-content: center;
 }
 
 #darkLeaveReqButtons {

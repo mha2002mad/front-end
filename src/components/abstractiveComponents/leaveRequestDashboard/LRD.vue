@@ -1,54 +1,76 @@
 <template>
-        <div :id="`${theme ? 'darkStuLeaveReqView' : 'whiteStuLeaveReqView'}`">
-            <div :class="`${theme ? 'darkStuLeaveReqRow' : 'whiteStuLeaveReqRow'}`">
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">student</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta dolorum sapiente quo tempora sed quasi facilis iste modi aut! Reprehenderit, rerum repellat sequi odio minima reiciendis blanditiis vel distinctio iure.</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">class</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">topic</p>
-                <form :id="`${theme ? 'darkLeaveReqButtons' : 'whiteLeaveReqButtons'}`" @submit.prevent="">
-                    <input :class="`${theme ? 'darkAcceptButton' : 'whiteAcceptButton'}`" type="submit" value="accept">
-                    <input :class="`${theme ? 'darkRejectButton' : 'whiteRejectButton'}`" type="submit" value="reject">
+    <template v-if="render">
+        <template v-if="([...LR.valueOf()].length == 0)">
+            <p :class="`${props.theme ? 'darkNoReq': 'whiteNoReq'}`">there is no leave requests yet</p>
+        </template>
+        <template v-else>
+            <div :id="`${theme ? 'darkStuLeaveReqView' : 'whiteStuLeaveReqView'}`">
+            <div v-for="(item, index) in [...LR.valueOf()]" :key="index" :class="`${theme ? 'darkStuLeaveReqRow' : 'whiteStuLeaveReqRow'}`">
+                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">{{ item.student }}</p>
+                <p :class="`${theme ? 'darkStuLaveReqres' : 'whiteStuLaveReqres'}`">{{ item.reason }}</p>
+                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">{{ item.course }}</p>
+                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">{{ item.date }}</p>
+                <template v-if="(item.statusI == 'approved')">
+                    <p class="approvedLabel">approved</p>
+                </template>
+                <template v-else-if="(item.statusI == 'rejected')">
+                    <p class="rejectedLabel">rejected</p>
+                </template>
+                <template v-else>
+                    <form :id="`${theme ? 'darkLeaveReqButtons' : 'whiteLeaveReqButtons'}`" @submit.prevent="(e) => marchToServer(e.submitter.value, item)">
+                    <input :disabled="disabled" :class="`${theme ? 'darkAcceptButton' : 'whiteAcceptButton'}`" type="submit" value="accept">
+                    <input :disabled="disabled" :class="`${theme ? 'darkRejectButton' : 'whiteRejectButton'}`" type="submit" value="reject">
                 </form>
-            </div>
-            <div :class="`${theme ? 'darkStuLeaveReqRow' : 'whiteStuLeaveReqRow'}`">
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">student</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta dolorum sapiente quo tempora sed quasi facilis iste modi aut! Reprehenderit, rerum repellat sequi odio minima reiciendis blanditiis vel distinctio iure.</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">class</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">topic</p>
-                <form :id="`${theme ? 'darkLeaveReqButtons' : 'whiteLeaveReqButtons'}`" @submit.prevent="">
-                    <input :class="`${theme ? 'darkAcceptButton' : 'whiteAcceptButton'}`" type="submit" value="accept">
-                    <input :class="`${theme ? 'darkRejectButton' : 'whiteRejectButton'}`" type="submit" value="reject">
-                </form>
-            </div>
-            <div :class="`${theme ? 'darkStuLeaveReqRow' : 'whiteStuLeaveReqRow'}`">
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">student</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta dolorum sapiente quo tempora sed quasi facilis iste modi aut! Reprehenderit, rerum repellat sequi odio minima reiciendis blanditiis vel distinctio iure.</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">class</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">topic</p>
-                <form :id="`${theme ? 'darkLeaveReqButtons' : 'whiteLeaveReqButtons'}`" @submit.prevent="">
-                    <input :class="`${theme ? 'darkAcceptButton' : 'whiteAcceptButton'}`" type="submit" value="accept">
-                    <input :class="`${theme ? 'darkRejectButton' : 'whiteRejectButton'}`" type="submit" value="reject">
-                </form>
-            </div>
-            <div :class="`${theme ? 'darkStuLeaveReqRow' : 'whiteStuLeaveReqRow'}`">
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">student</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dicta dolorum sapiente quo tempora sed quasi facilis iste modi aut! Reprehenderit, rerum repellat sequi odio minima reiciendis blanditiis vel distinctio iure.</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">class</p>
-                <p :class="`${theme ? 'darkStuLaveReqElements' : 'whiteStuLaveReqElements'}`">topic</p>
-                <form :id="`${theme ? 'darkLeaveReqButtons' : 'whiteLeaveReqButtons'}`" @submit.prevent="">
-                    <input :class="`${theme ? 'darkAcceptButton' : 'whiteAcceptButton'}`" type="submit" value="accept">
-                    <input :class="`${theme ? 'darkRejectButton' : 'whiteRejectButton'}`" type="submit" value="reject">
-                </form>
+                </template>
             </div>
         </div>
+        </template>
+    </template>
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, onMounted, ref } from 'vue';
 
-defineProps({
+const props = defineProps({
     theme: Number,
+    API:Function,
+    progressBarManagement: Function,
+    responseManagement:Function,
+    catchNetworkError: Function
 });
+
+const disabled = ref(0)
+const render = ref(0);
+const LR = ref([])
+onMounted(async () => {
+    const res = await props.API.get('/pullLeaveRequestsT');
+    LR.value = res.data;
+    // LR.value[0].statusI = 'approved'
+    render.value = 1
+});
+
+async function marchToServer(event, item){
+    console.log(item);
+    disabled.value = 1
+    if (event == 'reject') {
+        props.API.post('/teacherRespondToLeaveReq', JSON.stringify({
+                course: item.IDC,
+                status: 0,
+                date: item.date,
+                student: item.IDS
+            }))
+        } else {
+        props.API.post('/teacherRespondToLeaveReq', JSON.stringify({
+                course: item.IDC,
+                status: 1,
+                date: item.date,
+                student: item.IDS
+            }))
+    }
+    const res = await props.API.get('/pullLeaveRequestsT');
+    LR.value = res.data;
+    disabled.value = 0
+}
 
 </script>
 

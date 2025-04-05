@@ -1,6 +1,6 @@
 <template>
     <SL :theme="theme" :changeCurrentComponent="changeCurrentComponent" :backToComponent="TeacherPortal">
-        <SLD :theme="theme"/>
+        <SLD :theme="theme" :API="API" :progressBarManagement="progressBarManagement" :responseManagement="responseManagement" :catchNetworkError="catchNetworkError" />
     </SL>
 </template>
 
@@ -12,7 +12,11 @@ import SLD from '@/components/abstractiveComponents/leaveRequestDashboard/LRD.vu
 
 defineProps({
     theme: Number,
-    changeCurrentComponent: Function
+    changeCurrentComponent: Function,
+    API: Function,
+    progressBarManagement: Function,
+    responseManagement: Function,
+    catchNetworkError: Function
 });
 
 
