@@ -3,7 +3,6 @@
 </template>
 
 <script setup>
-import { Function } from 'core-js';
 import { defineProps } from 'vue';
 
 

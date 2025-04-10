@@ -80,14 +80,174 @@
 }
 
 #whiteNoDataView {
-    margin: 18vh;
+    width: 20.26vw;
     font-family: 'Roboto';
     font-size: 1.3em;
     color: var(--font-white);
+    text-align: center;
 }
 
 #darkNoDataView {
+    text-align: center;
+    width: 20.26vw;
+    font-family: 'Roboto';
+    font-size: 1.3em;
+    color: var(--font-dark);
+}
+
+.tableColumn {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    height: 40vh;
+    justify-content: space-around;
+}
+
+.whiteCon {
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    width: 10vw;
+    background-color: var(--white-back);
+    align-items: center;
+    justify-content: space-around;
+}
+
+.darkCon {
+    display: flex;
+    flex-direction: column;
+    height: 10vh;
+    width: 10vw;
+    background-color: var(--dark-back);
+    align-items: center;
+    justify-content: space-around;
+}
+
+.darkE {
+    font-family: 'Roboto';
+    color: var(--font-dark);
+    font-size: large;
+}
+
+.whiteE {
+    font-size: large;
+    font-family: 'Roboto';
+    color: var(--font-white);
+}
+
+.theRow {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    gap: 1vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.whiteFormLayout {
+    height: 10%;
+    width: 12vw;
+    border: 1px dashed gray;
+    border-radius: .7vh;
+    align-content: center;
+}
+.darkFormLayout {
+    border-radius: .7vh;
+    height: 10%;
+    width: 12vw;
+    border: 1px dashed gray;
+}
+
+.darkSelect {
+    width: 100%;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-size: 2vh;
+    border: 0px;
+    background-color: var(--dark-back);
+    color: var(--font-dark);
+    height: 4vh;
+}
+
+.whiteSelect {
+    height: 4vh;
+    width: 100%;
+    border-radius: 5px;
+    font-family: 'Roboto';
+    font-size: 2vh;
+    border: 0px;
+  }
+
+  .optionDark {
+    font-size: 2vh;
+    font-family: 'Roboto';
+    background-color: var(--dark-back);
+  }
+  
+  .optionWhite {
+    font-size: 2vh;
+    font-family: 'Roboto';
+    background-color: var(--white-card-back);
+  }
+  
+  .optionWhite:hover {
+    background-color: var(--button-color-white);
+  }
+  .optionDark:hover {
+    background-color: var(--button-color-dark);
+  }
+  .whiteDateView {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 2vh;
+    width: 30%;
+    height: 40vh;
+    background-color: transparent;
+    overflow-y: scroll;
+}
+
+.whiteDateView::-webkit-scrollbar {
+    width: .8vh;
+    background-color: var(--white-shadow-color);
+}
+
+.whiteDateView::-webkit-scrollbar-thumb {
+    background-color: var(--button-color-white);
+}
+  .darkDateView {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
+    align-items: center;
+    gap: 2vh;
+    width: 30%;
+    height: 40vh;
+    background-color: transparent;
+    overflow-y: scroll;
+}
+.darkDateView::-webkit-scrollbar {
+    width: .8vh;
+    background-color: var(--dark-shadow-color);
+}
+
+.darkDateView::-webkit-scrollbar-thumb {
+    background-color: var(--button-color-dark);
+}
+
+.whiteNoRecords {
+    width: 30%;
     margin: 18vh;
+    font-family: 'Roboto';
+    font-size: 1.3em;
+    color: var(--font-dark);
+}
+
+.darkNoRecords {
+    width: 30%;
+    margin: 18vh;
+    height: 40vh;
     font-family: 'Roboto';
     font-size: 1.3em;
     color: var(--font-dark);

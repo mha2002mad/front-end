@@ -1,5 +1,5 @@
 <template>
-    <pageGate :API="API" :responseManagement="responseManagement" :progressBarManagement="progressBarManagement" :graphCaption="graphCaption" :theme="theme" :links="links" :changeCurrentComponent="changeCurrentComponent"/>
+    <pageGate :API="API" :responseManagement="responseManagement" :progressBarManagement="progressBarManagement" :theme="theme" :links="links" :changeCurrentComponent="changeCurrentComponent"/>
 </template>
 
 <script setup>
@@ -33,8 +33,6 @@ const links = {
         component: dynamicComponentGround
     },
 }
-
-const graphCaption = ['monthly precence', 'weekly precence'];
 
 </script>
 

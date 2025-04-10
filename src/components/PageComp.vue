@@ -3,7 +3,7 @@
     <img :src="`./assets/img/${themeTracer.valueOf() ? 'sun.png' : 'moon.png'}`" @click="changeThemeTracerValue" alt="change theme" id="icon">
     <div :id="`${themeTracer.valueOf() ? 'waitingSpinnerDark': 'waitingSpinnerWhite'}`" :style="`width: ${progress.valueOf()}%; ${waitingSpinnerController.valueOf() ? 'visibility: visible': 'visibility: hidden'};`"></div>
     <component :is="theView" :LCSRF="loadcsrf" :progressBarManagement="progressBarManagement" :responseManagement="responseManagement" :catchNetworkError="catchNetworkError" :API="API" :cookie="cookie" :theme="themeTracer"></component>
-  <Notifications ref="notification" style="margin: 13vh 9vh; transform: scale(1.4);" position="bottom right" />
+    <Notifications ref="notification" style="margin: 13vh 9vh; transform: scale(1.4);" position="bottom right" />
   </div>
 </template>
 
