@@ -38,7 +38,7 @@ use([CanvasRenderer, GaugeChart]);
 const precenceValuesForDiagram = ref([])
 const name = ref('')
 const diagrams = ref([])
-
+const charts = ref([])
 async function setdata(){
     const res = await props.API.get('/pullPercentages');
     const pullName = await props.API.get('/pullName')
@@ -60,8 +60,8 @@ onMounted(async () => {
 
 
   diagrams.value.forEach((d, i) => {
-    const chart = echarts.init(d)
-    chart.setOption({
+    charts.value[i] = echarts.init(d)
+    charts.value[i].setOption({
     series: [
       {
       type: "gauge",
@@ -145,21 +145,12 @@ onMounted(async () => {
 });
 
 
-watch(() => toRef(props).value.theme, async () => {
-  // await nextTick()
-  // if (o.valueOf() === 0) {
-  //   optionsForMonthlyPresence.value.series[0].detail.color = "#444"
-  //   optionsForWeeklyPresence.value.series[0].detail.color = "#444"
-  //   charts.value[0].setOption(optionsForMonthlyPresence.value)
-  //   charts.value[1].setOption(optionsForWeeklyPresence.value)
-  // } else {
-  //   optionsForMonthlyPresence.value.series[0].detail.color = "#eee"
-  //   optionsForWeeklyPresence.value.series[0].detail.color = "#eee"
-  //   charts.value[0].setOption(optionsForMonthlyPresence.value)
-  //   charts.value[1].setOption(optionsForWeeklyPresence.value)
-  // }
-  diagrams.value.forEach((d) => {
-    console.log(d.options);
+watch(() => toRef(props).value.theme, async (o) => {
+  charts.value.forEach((d) => {
+    console.log(d.getOption());
+    let opt = d.getOption()
+    opt.series[0].detail.color = o.valueOf() ? "#eee" : "#444"
+    d.setOption(opt)
   })
 });
 

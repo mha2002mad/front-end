@@ -1,6 +1,6 @@
 <template>
     <SL :theme="theme" :backToComponent="studentPortal" :changeCurrentComponent="changeCurrentComponent">
-        <dataViewerComponents :flag="'AH'" :theme="theme" :API="API"/>
+        <dataViewerComponents :catchNetworkError="catchNetworkError" :responseManagement="responseManagement" :progressBarManagement="progressBarManagement" :flag="'AH'" :theme="theme" :API="API"/>
     </SL>
 </template>
 
@@ -13,7 +13,10 @@ import SL from '@/components/abstractiveComponents/subcomponentLayout/SL.vue';
 defineProps({
     changeCurrentComponent: Function,
     theme: Number,
-    API: Function
+    API: Function,
+    responseManagement: Function,
+    progressBarManagement: Function,
+    catchNetworkError: Function
 });
 
 </script>

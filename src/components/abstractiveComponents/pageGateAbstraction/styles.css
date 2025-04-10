@@ -139,7 +139,7 @@
     position: absolute;
     top: 3vh;
     right: 6vw;
-    background-color: var(--button-color-white);
+    background-color: var(--button-color-dark);
     width: 8vw;
     height: 5vh;
     border-radius: .5vh;

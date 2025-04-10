@@ -35,9 +35,11 @@ const progress = ref(0)
 const changeThemeTracerValue = () => {
   if (themeTracer.value) {
     themeTracer.value = 0
+    cookie.set('theme', themeTracer.value)
     return ;
   }
   themeTracer.value = 1
+  cookie.set('theme', themeTracer.value)
 }
 
 const progressMarch = (value) => {
@@ -94,6 +96,11 @@ async function loadcsrf(){
 }
 
   onMounted(async () => {
+    if (cookie.get('theme') == undefined) {
+      cookie.set('theme', themeTracer.value)
+    } else {
+      themeTracer.value = Number.parseInt(cookie.get('theme'))
+    }
     API.get('/csrf');
     API.defaults.headers.post['Content-Type'] = 'application/json';
   });

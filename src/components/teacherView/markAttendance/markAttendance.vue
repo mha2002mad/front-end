@@ -6,7 +6,7 @@
                     <div>
                         <p :class="`${props.theme ? 'darkData' : 'whiteData'}`">course</p>
                         <select v-model="course" :id="`${theme ? 'selectDark' : 'selectWhite'}`" :disabled="inputDisabled">
-                            <option :class="`${theme ? 'optionDark' : 'optionWhite'}`" v-for="(item, index) in courseOptions" :key="index" :value="item.ID">{{ item.course__courseName }}</option>
+                                <option :class="`${theme ? 'optionDark' : 'optionWhite'}`" v-for="(item, index) in courseOptions" :key="index" :value="item.ID">{{ item.course__courseName }}</option>
                         </select>
                     </div>
                 </form>

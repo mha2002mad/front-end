@@ -45,7 +45,6 @@ const LR = ref([])
 onMounted(async () => {
     const res = await props.API.get('/pullLeaveRequestsT');
     LR.value = res.data;
-    // LR.value[0].statusI = 'approved'
     render.value = 1
 });
 
@@ -58,16 +57,22 @@ async function marchToServer(event, item){
                 status: 0,
                 date: item.date,
                 student: item.IDS
-            }))
+            }), {
+                onUploadProgress: e => props.progressBarManagement(e)
+            })
         } else {
         props.API.post('/teacherRespondToLeaveReq', JSON.stringify({
                 course: item.IDC,
                 status: 1,
                 date: item.date,
                 student: item.IDS
-            }))
+            }), {
+                onUploadProgress: e => props.progressBarManagement(e)
+            })
     }
-    const res = await props.API.get('/pullLeaveRequestsT');
+    const res = await props.API.get('/pullLeaveRequestsT', {
+                onUploadProgress: e => props.progressBarManagement(e)
+            });
     LR.value = res.data;
     disabled.value = 0
 }

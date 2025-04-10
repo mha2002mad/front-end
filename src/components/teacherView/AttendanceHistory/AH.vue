@@ -17,6 +17,10 @@
                             <option  :class="`${theme ? 'optionDark' : 'optionWhite'}`" v-for="(item, index) in courseOptions" :key="index" :value="item.ID">{{ item.name }}</option>
                         </select>
                     </div>
+                    <div>
+                        <p :class="`${props.theme ? 'darkData' : 'whiteData'}`">Student name</p>
+                        <input :class="`${props.theme ? 'studentNameInputDark' : 'studentNameInputWhite'}`" value="" type="text" v-model="studentName">
+                    </div>
                 </form>
             </div>
                 <template v-if="showTable">
@@ -72,7 +76,7 @@ const inputDisabled = ref(0)
 const data = ref([])
 const courseOptions = ref([])
 const showTable = ref(0)
-
+const studentName = ref('')
 
 onMounted(async () => {
     const res = await props.API.get('/pullAvailableCourses');
@@ -86,15 +90,26 @@ async function pullRecords() {
     const res = await props.API.post('/pullRecords', JSON.stringify({
         fromDate: fromDate.value,
         toDate: toDate.value,
-        course: course.value
+        course: course.value,
+        studentName: studentName.value.trim()
     }), {onUploadProgress: (e) => props.progressBarManagement(e)})
     data.value = await res.data
     console.log(data.value);
     inputDisabled.value = 0
 }
 
-watch([course, fromDate, toDate], async ([nc, nfd, ntd]) => {
+watch([course, fromDate, toDate, studentName], async ([nc, nfd, ntd]) => {
     if (nc == '' || nfd == '' || ntd == '') {
+        return ;
+    }
+
+    if (studentName.value != '' && !(/^[A-Za-z]+\s[A-Za-z]+|[A-Za-z]+$/.test(studentName.value))) {
+        notify({
+            type: 'warn',
+            title: 'inefficient name',
+            text: 'please provide a suffecient name',
+            ignoreDuplicates: true
+        })
         return ;
     }
 

@@ -66,6 +66,9 @@ const props = defineProps({
     theme: Number,
     API: Function,
     flag: String,
+    responseManagement: Function,
+    progressBarManagement: Function,
+    catchNetworkError: Function
 });
 
 const course = ref('');
@@ -97,10 +100,11 @@ onMounted(async () => {
         if (course.value == '' || course.value == 'a') {
             return
     }
-    console.log(course.value)
     const res = await props.API.post('/pullMyStats', JSON.stringify({
         course: course.value
-    }))
+    }), {
+                onUploadProgress: e => props.progressBarManagement(e)
+        })
     if ([...res.data].length == 0) {
                 data.value = []
         } else {
