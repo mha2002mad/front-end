@@ -68,6 +68,9 @@ const responseManagement = async (response, title) => {
                 type: response.data[obj][index] == 'success' ? 'success' : 'error',
                   title: title,
                   text: response.data[obj][index],
+                  closeOnClick: true,
+                  ignoreDuplicates: true,
+                  duration: 120000
                 });
           }
         } else {

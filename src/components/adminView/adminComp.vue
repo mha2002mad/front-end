@@ -1,35 +1,31 @@
 <template>
-    <div class="container" :id="`${theme ? 'containerDark' : 'containerWhite'}`">
-        <div :id="`${theme ? 'darkNavBar' : 'whiteNavBar'}`">
-            <p v-for="(item, index) in links" :key="index" @click="()=>{changeCurrentComponent(item.component)}" :class="`${theme ? 'linksDark' : 'linksWhite'}`">{{ item.name }}</p>
-        </div>
-        <div id="chartsLayout">
-          <div  class="placeHolderLayout">
-            <p :class="`${theme ? 'darkTitle' : 'lightTitle'}`">{{ props.graphCaption[0] }}</p>
-            <div id="c1" ref="c1" style="height: 22vh; width: 20vw;"></div>
-          </div>
-          <div class="placeHolderLayout">
-            <p :class="`${theme ? 'darkTitle' : 'lightTitle'}`">{{ props.graphCaption[1] }}</p>
-            <div id="c2" ref="c2" style="height: 22vh; width: 20vw;"></div>
-          </div>
-        </div>
-    </div>
+    <component :catchNetworkError="catchNetworkError" :responseManagement="responseManagement" :progressBarManagement="progressBarManagement" :API="props.API" :is="currentComponent" :changeCurrentComponent="changeCurrentComponent" :theme="theme"></component>
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
-
+import { defineProps, ref, onMounted } from 'vue';
+// import AuthoriseAdmin from './components/adminAuth/AuthoriseAdmin.vue';
+import AdminPortal from './components/adminPortal/adminPortal.vue';
 
 const props = defineProps({
-  theme: Number,
-  changeCurrentComponent: Function,
-  API: Function,
+    theme: Number,
+    progressBarManagement: Function,
+    responseManagement: Function,
+    catchNetworkError: Function,
+    API: Function,
+    cookie: Object,
+    LCSRF: Function
 });
 
 
+const currentComponent = ref(AdminPortal)
+const changeCurrentComponent = (component) => {
+  currentComponent.value = component
+};
 
-
-
+onMounted(() => {
+  props.LCSRF()
+});
 </script>
 
 <style src="./styles.css" scoped></style>

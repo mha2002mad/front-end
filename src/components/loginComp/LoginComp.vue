@@ -2,7 +2,7 @@
     <form v-if="render" @submit.prevent="loginAttempt" :id="`${theme ? 'formDark' : 'formWhite'}`" method="post">
       <p :id="`${theme ? 'captionDark' : 'captionWhite'}`">login </p>
       <input type="text" v-model="username" :class="`${theme ? 'inputDark' : 'inputWhite'}`" placeholder="username" required>
-      <input type="text" v-model="password" :class="`${theme ? 'inputDark' : 'inputWhite'}`"  placeholder="password" required>
+      <input type="password" v-model="password" :class="`${theme ? 'inputDark' : 'inputWhite'}`"  placeholder="password" required>
       <select name="role" v-model="role" :id="`${theme ? 'selectDark' : 'selectWhite'}`"  required>
         <option :class="`${theme ? 'optionDark' : 'optionWhite'}`" value="none" hidden selected disabled>select your role</option>
         <option :class="`${theme ? 'optionDark' : 'optionWhite'}`" value="student">student</option>

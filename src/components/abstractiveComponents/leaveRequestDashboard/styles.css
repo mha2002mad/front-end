@@ -67,6 +67,7 @@
     font-size: 2vh;
     margin: 1vh 1vh 1vh .1vh;
     text-align: left;
+    font-family: 'Roboto';
     color: var(--font-dark);
 }
 
@@ -74,18 +75,21 @@
     font-size: 2vh;
     margin: 1vh 1vh 1vh .1vh;
     text-align: left;
+    font-family: 'Roboto';
     color: var(--font-white);
 }
 
 .whiteStuLaveReqres {
     width: 30vw;
     text-align: center;
+    font-family: 'Roboto';
 }
 
 .darkStuLaveReqres {
     width: 30vw;
     color: var(--font-dark);
     text-align: center;
+    font-family: 'Roboto';
 }
 
 .approvedLabel{
