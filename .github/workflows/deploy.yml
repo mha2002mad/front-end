@@ -1,0 +1,41 @@
+name: deploy
+on:
+  push:
+      branches:
+        - main
+env:
+  dockerimage: 'mha2002mad/sa-frontend'
+
+jobs:
+  buildAndDeploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: build project
+      uses: actions/checkout@v3
+
+    - name: dockerLogIn
+      uses: docker/login-action@v3
+      with:
+        username: ${{secrets.docker_usr}}
+        password: ${{ secrets.docker_psw }}
+
+    - name: buildDockerImage
+      run: |
+        docker build -t $dockerimage:latest .
+
+    - name: PushToHub
+      run: |
+        docker push $dockerimage:latest
+
+    - name: sshAndDeploy
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.stuatte_frontend_host }}
+        username: ${{ secrets.stuatte_frontend_host_user }}
+        key: ${{ secrets.stuatte_pem_key }}
+        script: |
+          sudo docker stop SAF
+          sudo docker rm SAF
+          sudo docker pull $dockerimage
+          sudo docker run -d --name SAF -p 8000:8000 $dockerimage
