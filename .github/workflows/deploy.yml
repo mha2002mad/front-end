@@ -11,8 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: build project
+    - name: fetch
       uses: actions/checkout@v3
+
+    - name: nodeSetup
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
+
+    - name: installDeps
+      run: npm ci || npm install
+
+    - name: buildForProd
+      run: npm run build
 
     - name: dockerLogIn
       uses: docker/login-action@v3
