@@ -48,5 +48,5 @@ jobs:
         script: |
           sudo docker stop SAF
           sudo docker rm SAF
-          sudo docker pull $dockerimage
+          sudo docker pull mha2002mad/sa-frontend
           sudo docker run -d --name SAF -p 8000:8000 $dockerimage
