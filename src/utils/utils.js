@@ -22,9 +22,9 @@ export function INIT() {
                 console.log('noo');
                 await API.value.get('/csrf');
             }
-            API.value.defaults.headers.post['X-CSRFToken'] = await cookie.value.get('csrftoken').toString()
+            API.value.defaults.headers.post['X-CSRFToken'] = String(await cookie.value.get('csrftoken'))
     }
-
+    console.log(API.value);
     return {
         API,
         InitAPI,
