@@ -92,7 +92,7 @@ const catchNetworkError = (e) => {
 
 async function loadcsrf(){
     if (cookie.value.get('csrftoken') == undefined) {
-      API.value.post('csrf');
+      API.value.get('/csrf');
       API.value.defaults.headers.post['X-CSRFToken'] = await cookie.value.get('csrftoken')
     }
     API.value.defaults.headers.post['X-CSRFToken'] = await cookie.value.get('csrftoken')
