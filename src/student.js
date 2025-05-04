@@ -8,4 +8,5 @@ const app = createApp(root, {
 })
 
 app.use(Notifications); 
+app.config.errorHandler = (e)  => console.log(e)
 app.mount('#app')

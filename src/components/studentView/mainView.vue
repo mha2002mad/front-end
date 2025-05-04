@@ -30,7 +30,7 @@ onMounted(async()=>{
             window.location.href = '/login'
             return ;
         }
-    });
+    }).catch((err) => {props.catchNetworkError(err); window.location.href = '/login'});
     render.value = 1
 })
 

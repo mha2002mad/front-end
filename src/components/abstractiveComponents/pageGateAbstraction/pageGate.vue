@@ -40,8 +40,8 @@ const name = ref('')
 const diagrams = ref([])
 const charts = ref([])
 async function setdata(){
-    const res = await props.API.get('/pullPercentages');
-    const pullName = await props.API.get('/pullName')
+    const res = await props.API.get('/pullPercentages').catch((err) => props.catchNetworkError(err));
+    const pullName = await props.API.get('/pullName').catch((err) => props.catchNetworkError(err))
     name.value = pullName.data
     precenceValuesForDiagram.value = res.data
 }

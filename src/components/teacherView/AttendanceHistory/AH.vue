@@ -79,9 +79,8 @@ const showTable = ref(0)
 const studentName = ref('')
 
 onMounted(async () => {
-    const res = await props.API.get('/pullAvailableCourses');
+    const res = await props.API.get('/pullAvailableCourses').catch((err) => props.catchNetworkError(err));
     courseOptions.value = await res.data;
-    console.log(courseOptions.value);
     render.value = 1
 });
 
@@ -100,6 +99,10 @@ async function pullRecords() {
 
 watch([course, fromDate, toDate, studentName], async ([nc, nfd, ntd]) => {
     if (nc == '' || nfd == '' || ntd == '') {
+        return ;
+    }
+
+    if (/^[a-zA-Z]+\s$/.test(studentName.value)) {
         return ;
     }
 

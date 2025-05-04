@@ -1,14 +1,9 @@
 const { defineConfig } = require('@vue/cli-service')
 
 module.exports = defineConfig({
+  publicPath: './',
   transpileDependencies: true,
   pages: {
-    // index: {
-    //   entry: './src/login.js',
-    //   template: 'public/login.html',
-    //   filename: 'login.html',
-    //   title: 'login Page'
-    // },
     login: {
       entry: './src/login.js',
       template: 'public/login.html',

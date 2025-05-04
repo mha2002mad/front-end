@@ -9,7 +9,7 @@
 </template>
 
 <script setup>
-import { defineProps, ref, onMounted } from 'vue';
+import { defineProps, ref } from 'vue';
 import { notify } from '@kyvg/vue3-notification';
 import adminPortal from '../adminPortal/adminPortal.vue';
 
@@ -28,9 +28,6 @@ const props = defineProps({
   changeCurrentComponent: Function
 });
 
-onMounted(()=>{
-  props.LCSRF()
-})
 
 
 

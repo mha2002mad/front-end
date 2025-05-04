@@ -43,7 +43,7 @@ const disabled = ref(0)
 const render = ref(0);
 const LR = ref([])
 onMounted(async () => {
-    const res = await props.API.get('/pullLeaveRequestsT');
+    const res = await props.API.get('/pullLeaveRequestsT').catch((err) => props.catchNetworkError(err));
     LR.value = res.data;
     render.value = 1
 });
@@ -59,7 +59,7 @@ async function marchToServer(event, item){
                 student: item.IDS
             }), {
                 onUploadProgress: e => props.progressBarManagement(e)
-            })
+            }).catch((err) => props.catchNetworkError(err))
         } else {
         props.API.post('/teacherRespondToLeaveReq', JSON.stringify({
                 course: item.IDC,
@@ -68,11 +68,11 @@ async function marchToServer(event, item){
                 student: item.IDS
             }), {
                 onUploadProgress: e => props.progressBarManagement(e)
-            })
+            }).catch((err) => props.catchNetworkError(err))
     }
     const res = await props.API.get('/pullLeaveRequestsT', {
                 onUploadProgress: e => props.progressBarManagement(e)
-            });
+            }).catch((err) => props.catchNetworkError(err));
     LR.value = res.data;
     disabled.value = 0
 }

@@ -21,17 +21,39 @@ const role = ref('role')
 const render = ref(0)
 
 const props = defineProps({
-  theme: Number,
-  API: Function,
-  cookie: Object,
-  progressBarManagement: Function,
-  responseManagement: Function,
-  catchNetworkError: Function,
-  LCSRF: Function
+  theme: {
+    required: true,
+    type: Number
+  },
+  API: {
+    required: true,
+    type: Function
+  },
+  cookie: {
+    required: true,
+    type: Object
+  },
+  progressBarManagement: {
+    required: true,
+    type: Function
+  },
+  responseManagement: {
+    required: true,
+    type: Function
+  },
+  catchNetworkError: {
+    required: true,
+    type: Function
+  },
+  LCSRF: {
+    required: true,
+    type: Function
+  }
 });
 
-onMounted(()=>{
-  props.LCSRF()
+
+onMounted(async ()=>{
+  await props.LCSRF()
   props.API.get('/amILogedIn').then((r)=>{
     if (r.data['message'] == 'negative') {
       render.value = 1
@@ -40,7 +62,7 @@ onMounted(()=>{
     } else {
       window.location.href = '/studentPortal'
     }
-  })
+  }).catch((err) => props.catchNetworkError(err))
 })
 
 

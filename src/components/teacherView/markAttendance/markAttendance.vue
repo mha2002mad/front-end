@@ -67,8 +67,14 @@ const showTable = ref(0)
 const studentsForPost = ref([])
 
 onMounted(async () => {
-    const res = await props.API.get('/pullTodayCourse');
+    const res = await props.API.get('/pullTodayCourse').catch((err) => props.catchNetworkError(err));
     courseOptions.value = await res.data;
+    if (courseOptions.value.length == 0) {
+        notify({
+            type: 'warn',
+            text: "you've no lectures today to store attendance for"
+        })
+    }
     render.value = 1
 });
 
@@ -76,7 +82,7 @@ async function pullStudents() {
     inputDisabled.value = 1;
     const res = await props.API.post('/pullStudentsForAttendanceInput', JSON.stringify({
         course: course.value
-    }), {onUploadProgress: (e) => props.progressBarManagement(e)})
+    }), {onUploadProgress: (e) => props.progressBarManagement(e)}).catch((err) => props.catchNetworkError(err))
     students.value = await res.data;
     students.value.sort((a, b) => a.studentName.localeCompare(b.studentName));
     [...students.value].forEach((student) => {
@@ -124,7 +130,7 @@ async function marchToServer() {
         course: course.value,
         TTDID: c.TTDID,
         day: c.day,
-    }))
+    })).catch((err) => props.catchNetworkError(err))
     
     inputDisabled.value = 0;
     if(res.data['message'] == 'positive'){

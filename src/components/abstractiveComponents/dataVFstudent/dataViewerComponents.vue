@@ -79,7 +79,7 @@ const render = ref(0)
 const data = ref([])
 onMounted(async () => {
         if (props.flag == 'LR') {
-            const res = await props.API.get('/pullMyLeaveRequests')
+            const res = await props.API.get('/pullMyLeaveRequests').catch((err) => props.catchNetworkError(err))
             if ([...res.data].length == 0) {
                 data.value = 'no requests yet'
             } else {
@@ -87,8 +87,8 @@ onMounted(async () => {
                 columns.value = Object.keys([...data.value][0]).reverse()
             }
         } else if (props.flag == 'AH') {
-            const res = await props.API.get('/pullMyCourses');
-            const res2 = await props.API.get('/pullTableData');
+            const res = await props.API.get('/pullMyCourses').catch((err) => props.catchNetworkError(err));
+            const res2 = await props.API.get('/pullTableData').catch((err) => props.catchNetworkError(err));
             tableData.value = [...res2.data]
             courses.value = [...res.data]
         }
@@ -104,7 +104,7 @@ onMounted(async () => {
         course: course.value
     }), {
                 onUploadProgress: e => props.progressBarManagement(e)
-        })
+        }).catch((err) => props.catchNetworkError(err))
     if ([...res.data].length == 0) {
                 data.value = []
         } else {

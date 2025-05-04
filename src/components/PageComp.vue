@@ -1,5 +1,5 @@
 <template>
-  <div :id="`${themeTracer.valueOf() ? 'pageDark': 'pageWhite'}`">
+  <div v-if="render" :id="`${themeTracer.valueOf() ? 'pageDark': 'pageWhite'}`">
     <img :src="`./assets/img/${themeTracer.valueOf() ? 'sun.png' : 'moon.png'}`" @click="changeThemeTracerValue" alt="change theme" id="icon">
     <div :id="`${themeTracer.valueOf() ? 'waitingSpinnerDark': 'waitingSpinnerWhite'}`" :style="`width: ${progress.valueOf()}%; ${waitingSpinnerController.valueOf() ? 'visibility: visible': 'visibility: hidden'};`"></div>
     <component :is="theView" :LCSRF="loadcsrf" :progressBarManagement="progressBarManagement" :responseManagement="responseManagement" :catchNetworkError="catchNetworkError" :API="API" :cookie="cookie" :theme="themeTracer"></component>
@@ -11,15 +11,8 @@
 import { Notifications } from '@kyvg/vue3-notification';
 import { defineProps, ref, onMounted } from 'vue';
 import { notify } from '@kyvg/vue3-notification';
-import axios from "axios";
-import Cookies from "universal-cookie";
+import { INIT } from '@/utils/utils';
 
-
-const cookie = new Cookies();
-const API = axios.create({
-    withCredentials: true,
-    baseURL: "http://127.0.0.1:8000"
-});
 
 defineProps({
   theView: {
@@ -28,18 +21,22 @@ defineProps({
   }
 })
 
+const render = ref(0);
 const waitingSpinnerController = ref(0);
 const themeTracer = ref(0);
 const progress = ref(0)
+const {API, InitAPI, cookie} = INIT()
+
+
 
 const changeThemeTracerValue = () => {
   if (themeTracer.value) {
     themeTracer.value = 0
-    cookie.set('theme', themeTracer.value)
+    cookie.value.set('theme', themeTracer.value)
     return ;
   }
   themeTracer.value = 1
-  cookie.set('theme', themeTracer.value)
+  cookie.value.set('theme', themeTracer.value)
 }
 
 const progressMarch = (value) => {
@@ -85,7 +82,6 @@ const responseManagement = async (response, title) => {
     }
   }
 
-
 const catchNetworkError = (e) => {
   notify({
     type: 'error',
@@ -95,17 +91,23 @@ const catchNetworkError = (e) => {
 };
 
 async function loadcsrf(){
-  API.defaults.headers.post['X-CSRFToken'] = await cookie.get('csrftoken')
+    if (cookie.value.get('csrftoken') == undefined) {
+      API.value.post('csrf');
+      API.value.defaults.headers.post['X-CSRFToken'] = await cookie.value.get('csrftoken')
+    }
+    API.value.defaults.headers.post['X-CSRFToken'] = await cookie.value.get('csrftoken')
 }
 
   onMounted(async () => {
-    if (cookie.get('theme') == undefined) {
-      cookie.set('theme', themeTracer.value)
+    await InitAPI();
+    await loadcsrf();
+    console.log(API.value.defaults);
+    if (cookie.value.get('theme') == undefined) {
+      cookie.value.set('theme', themeTracer.value)
     } else {
-      themeTracer.value = Number.parseInt(cookie.get('theme'))
+      themeTracer.value = Number.parseInt(cookie.value.get('theme'))
     }
-    API.get('/csrf');
-    API.defaults.headers.post['Content-Type'] = 'application/json';
+    render.value = 1;
   });
 
 </script>

@@ -16,8 +16,8 @@
   <script setup>
   import { defineProps, onMounted, ref } from 'vue';
   import bulkInserion from './bulkInsertion/bulkInserion.vue';
-  import TimeTable from './timeTable/timeTable.vue';
-  import modificationsComp from './modification/modificationsComp.vue';
+  // import TimeTable from './timeTable/timeTable.vue';
+  // import modificationsComp from './modification/modificationsComp.vue';
 
   const render = ref(0)
 
@@ -28,7 +28,6 @@
     catchNetworkError: Function,
     API: Function,
     cookie: Object,
-    LCSRF: Function,
     });
 
 const name = ref('')
@@ -37,14 +36,6 @@ const links = [
         name: 'bulk insert',
         component: bulkInserion
     },
-    {
-        name: 'modification',
-        component: modificationsComp
-    },
-    {
-        name: 'time table',
-        component: TimeTable
-    }
 ]
 
 

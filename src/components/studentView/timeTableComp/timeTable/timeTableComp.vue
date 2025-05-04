@@ -34,7 +34,7 @@ const props = defineProps({
     thursday: 4,
   };
   onMounted(async () => {
-    const res  = await props.API.get('/pullTimeTable')
+    const res  = await props.API.get('/pullTimeTable').catch((err) => props.catchNetworkError(err))
     data.value = await res.data;
     [...data.value].forEach((e) => {
       pr_d.value.push({

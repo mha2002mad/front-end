@@ -3,9 +3,9 @@
 </template>
 
 <script setup>
-import { defineProps, ref, onMounted } from 'vue';
-// import AuthoriseAdmin from './components/adminAuth/AuthoriseAdmin.vue';
-import AdminPortal from './components/adminPortal/adminPortal.vue';
+import { defineProps, ref, onMounted, onBeforeUnmount } from 'vue';
+import AuthoriseAdmin from './components/adminAuth/AuthoriseAdmin.vue';
+// import AdminPortal from './components/adminPortal/adminPortal.vue';
 
 const props = defineProps({
     theme: Number,
@@ -17,15 +17,22 @@ const props = defineProps({
     LCSRF: Function
 });
 
-
-const currentComponent = ref(AdminPortal)
+const currentComponent = ref(AuthoriseAdmin)
 const changeCurrentComponent = (component) => {
   currentComponent.value = component
 };
 
-onMounted(() => {
-  props.LCSRF()
+onMounted(async () => {
+  await props.LCSRF()
 });
+
+console.log(props.cookie.getAll());
+
+
+onBeforeUnmount(async ()=>{
+  
+});
+
 </script>
 
 <style src="./styles.css" scoped></style>

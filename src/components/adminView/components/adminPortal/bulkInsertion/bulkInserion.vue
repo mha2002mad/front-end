@@ -1,7 +1,7 @@
 <template>
         <form id="form" @submit.prevent="submitData">
             <p :id="`${props.theme ? 'darkLabel' : 'whiteLabel'}`">please provide a CSV file containing following attributes in order: firstname | lastname | department name | major | stage</p>
-            <input type="file" @change="(event) => readCsvAsString(event)">
+            <input type="file" @change="(event) => readCsvAsString(event)" required>
             <input :id="`${props.theme ? 'submitButtonDark' : 'submitButtonWhite'}`" type="submit" value="submit">
         </form>
 </template>
@@ -19,7 +19,6 @@ const props = defineProps({
     catchNetworkError: Function,
     API: Function,
     cookie: Object,
-    LCSRF: Function,
     changeCurrentComponent: Function
 });
 

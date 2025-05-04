@@ -24,7 +24,7 @@ const changeCurrentComponent = (component) => {
 };
 
 onMounted(async()=>{
-    await props.LCSRF();
+    await props.LCSRF()
     await props.API.post('/authorise', {
         'role': 'T'
     }).then(async (r) => {
@@ -32,7 +32,7 @@ onMounted(async()=>{
             window.location.href = '/login'
             return ;
         }
-    });
+    }).catch((err) => {props.catchNetworkError(err); window.location.href = '/login'});
     render.value = 1
 });
 
