@@ -50,6 +50,6 @@ jobs:
           sudo docker rm SAF
           sudo docker pull mha2002mad/sa-frontend
           sudo docker run -d --name SAF -p 443:443 \
-          -v /etc/letsencrypt/live/abcdef444.duckdns.org/fullchain.pem:/etc/nginx/certs/fc.pem \
-          -v /etc/letsencrypt/live/abcdef444.duckdns.org/privkey.pem:/etc/nginx/certs/pk.pem \
+          -v /etc/letsencrypt/live/abcdef444.duckdns.org/fullchain.pem:/etc/nginx/certs/fullchain.pem \
+          -v /etc/letsencrypt/live/abcdef444.duckdns.org/privkey.pem:/etc/nginx/certs/privkey.pem \
           mha2002mad/sa-frontend
