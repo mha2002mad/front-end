@@ -46,10 +46,11 @@ jobs:
         username: ${{ secrets.stuatte_frontend_host_user }}
         key: ${{ secrets.stuatte_pem_key }}
         script: |
+          sudo -i
           sudo docker stop SAF
           sudo docker rm SAF
           sudo docker pull mha2002mad/sa-frontend
           sudo docker run -d --name SAF -p 443:443 \
-          -v /etc/letsencrypt/live/abcdef444.duckdns.org/fullchain.pem:/etc/nginx/certs/fullchain.pem \
-          -v /etc/letsencrypt/live/abcdef444.duckdns.org/privkey.pem:/etc/nginx/certs/privkey.pem \
+          -v /etc/letsencrypt/archive/abcdef444.duckdns.org/fullchain1.pem:/etc/nginx/certs/fullchain.pem \
+          -v /etc/letsencrypt/archive/abcdef444.duckdns.org/privkey1.pem:/etc/nginx/certs/privkey.pem \
           mha2002mad/sa-frontend
