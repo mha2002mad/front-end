@@ -8,7 +8,7 @@ RUN rm -fr default.conf
 COPY nginx.conf .
 
 
-EXPOSE 8000
+EXPOSE 443
 WORKDIR /usr/scripts/
 COPY ENTRYPOINT.sh .
 RUN chmod +x ENTRYPOINT.sh
