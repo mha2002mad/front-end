@@ -7,6 +7,7 @@ WORKDIR /etc/nginx/conf.d/
 RUN rm -fr default.conf
 COPY nginx.conf .
 
+RUN mkdir /certs
 
 EXPOSE 443
 WORKDIR /usr/scripts/

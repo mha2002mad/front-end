@@ -51,5 +51,6 @@ jobs:
           sudo docker rm SAF
           sudo docker pull mha2002mad/sa-frontend
           sudo docker run -d --name SAF -p 443:443 \
-          -v /etc/letsencrypt/archive/abcdef444.duckdns.org:/cuscerts \
           mha2002mad/sa-frontend
+          sudo docker cp /etc/letsencrypt/live/abcdef444.duckdns.org/fullchain.pem SAF:/cuscerts
+          sudo docker cp /etc/letsencrypt/live/abcdef444.duckdns.org/privkey.pem SAF:/cuscerts
