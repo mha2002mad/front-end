@@ -47,9 +47,12 @@ jobs:
         key: ${{ secrets.stuatte_pem_key }}
         script: |
           sudo docker stop SAF
+
           sudo docker rm SAF
-          sudo docker pull mha2002mad/sa-frontend \
-          -e pk="$(cat /etc/letsencrypt/archive/abcdef444.duckdns.org/privkey1.pem)" \
-          -e fc="$(cat /etc/letsencrypt/archive/abcdef444.duckdns.org/fullchain1.pem)"
+
+          sudo docker pull mha2002mad/sa-frontend
+
           sudo docker run -d --name SAF -p 443:443 \
+          -e pk="$(cat /etc/letsencrypt/archive/abcdef444.duckdns.org/privkey1.pem)" \
+          -e fc="$(cat /etc/letsencrypt/archive/abcdef444.duckdns.org/fullchain1.pem)" \
           mha2002mad/sa-frontend
