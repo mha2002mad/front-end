@@ -37,7 +37,7 @@ jobs:
 
     - name: PushToHub
       run: |
-        docker push $dockerimage:latest
+        docker push $dockerimage:latest 
 
     - name: sshAndDeploy
       uses: appleboy/ssh-action@v1.0.0
