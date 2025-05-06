@@ -12,13 +12,14 @@ export function INIT() {
             const APIGA = await fetch('https://9z2babe43m.execute-api.eu-north-1.amazonaws.com/prod/getTheUrl');
             API.value = axios.create({
                 withCredentials: true,
-                baseURL: `https://${await APIGA.json()}:443`,
+                baseURL: `https://${await APIGA.json()}`,
                 headers: {
                     'Content-Type': 'application/json'
                 }
             })
         }
             if (await cookie.value.get('csrftoken') == undefined) {
+                console.log('lolll');
                 await API.value.get('/csrf');
             }
             API.value.defaults.headers.post['X-CSRFToken'] = await cookie.value.get('csrftoken')
