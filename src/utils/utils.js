@@ -11,7 +11,7 @@ export function INIT() {
         if (API.value == null) {
             API.value = axios.create({
                 withCredentials: true,
-                baseURL: `https://${window.location.hostname}/api/`,
+                baseURL: `https://${window.location.host}/api/`,
                 headers: {
                     'Content-Type': 'application/json'
                 }
