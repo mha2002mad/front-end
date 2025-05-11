@@ -54,6 +54,7 @@ const props = defineProps({
 
 onMounted(async ()=>{
   await props.LCSRF()
+  
   props.API.get('/amILogedIn').then((r)=>{
     if (r.data['message'] == 'negative') {
       render.value = 1

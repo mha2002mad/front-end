@@ -21,7 +21,7 @@ export function INIT() {
                 await API.value.get('/csrf');
             }
             API.value.defaults.headers.post['X-CSRFToken'] = await cookie.value.get('csrftoken')
-            console.log(API.value.defaults);
+            console.log(API.value.defaults)
     }
     return {
         API,
