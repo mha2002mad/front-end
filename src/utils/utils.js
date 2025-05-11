@@ -19,8 +19,15 @@ export function INIT() {
             })
         }
             if (await cookie.value.get('csrftoken') == undefined) {
-                console.log('lolll');
-                await API.value.get('/csrf');
+                const res = await API.value.get('/csrf');
+                const token = await res.data.token
+                cookie.value.set('csrftoken', token, {
+                    domain: window.location.hostname,
+                    path: '/',
+                    sameSite: 'none',
+                    secure: true,
+                    expires: new Date(Date.now() + 86400 * 1000)
+                })
             }
             API.value.defaults.headers.post['X-CSRFToken'] = await cookie.value.get('csrftoken')
             console.log(API.value.defaults);
