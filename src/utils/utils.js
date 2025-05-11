@@ -9,9 +9,10 @@ const API = ref(null);
 export function INIT() {
     async function InitAPI(){
         if (API.value == null) {
+            const APIGA = await fetch('https://9z2babe43m.execute-api.eu-north-1.amazonaws.com/prod/getTheUrl');
             API.value = axios.create({
                 withCredentials: true,
-                baseURL: `https://${window.location.host}/api/`,
+                baseURL: `https://${await APIGA.json()}/api/`,
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -21,7 +22,7 @@ export function INIT() {
                 await API.value.get('/csrf');
             }
             API.value.defaults.headers.post['X-CSRFToken'] = await cookie.value.get('csrftoken')
-            console.log(API.value.defaults)
+            console.log(API.value.defaults);
     }
     return {
         API,
