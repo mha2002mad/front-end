@@ -76,13 +76,6 @@ const loginAttempt = async () => {
       onUploadProgress: (e)=> props.progressBarManagement(e),
     } ).then(async (r)=> {
       await props.responseManagement(r, 'login')
-      await props.cookie.value.set('sessionid', await r.data.sessionid, {
-                    domain: window.location.hostname,
-                    path: '/',
-                    sameSite: 'none',
-                    secure: true,
-                    expires: new Date(Date.now() + 86400 * 1000)
-                })
       if (r.data['message'] == 'success') {
         if (role.value == 'student') {
           window.location.href = '/studentPortal'
